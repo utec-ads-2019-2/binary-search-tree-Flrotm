@@ -13,6 +13,16 @@ class Node {
     Node<T> *left;
     Node<T> *right;
 
+    void killSelf() {
+        if(left != nullptr){
+            left->killSelf();
+        }
+        if(right != nullptr){
+            right->killSelf();
+        }
+        delete this;
+    }
+
     template<class>
     friend class BSTree; 
 
