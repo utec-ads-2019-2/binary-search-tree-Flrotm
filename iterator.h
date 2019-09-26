@@ -2,39 +2,46 @@
 #define ITERATOR_H
 
 #include "node.h"
-
-template <typename T> 
+#include <iostream>
+using namespace std;
+template <typename T>
 class Iterator {
     private:
         Node<T> *current;
 
     public:
         Iterator() {
-            // TODO
+            this->current= nullptr;
         }
 
         Iterator(Node<T> *node) {
-            // TODO
+
         }
 
-        Iterator<T>& operator=(const Iterator<T> &other) {          
-            // TODO
+        Iterator<T>& operator=(const Iterator<T> &other) {
+            this->current=other.current;
+                return *this;
         }
 
         bool operator!=(Iterator<T> other) {
-            // TODO
+                return this->current!=other.current;
         }
 
         Iterator<T>& operator++() {
-            // TODO
+            if(this->current->left!=nullptr){
+                    this->current=this->current->left;
+            }
+                return *this;
         }
 
-        Iterator<T>& operator--() {
-            // TODO
+       Iterator<T>& operator--() {
+
         }
 
         T operator*() {
-            // TODO
+                if(this->current!= nullptr){
+                        return this->current->data;
+                } else throw out_of_range("error");
         }
 };
 
