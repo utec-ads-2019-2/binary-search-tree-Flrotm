@@ -25,6 +25,7 @@ public:
         return false;
     }
     T findMax(T data){
+        // Estás creando nuevos nodos en cada iteración
         auto root =new Node<T>;
         if(root->right== nullptr)
             return this->root->data;
@@ -32,7 +33,7 @@ public:
     }
 
     void insert(T data) {
-
+        // Cómo estás insertando?
         root->data=data;
         this->root->left=root->right= nullptr;
         if(data<this->root->data)
@@ -45,7 +46,7 @@ public:
 
     Node<T>* remove(T data) {
         nodes--;
-
+        // Estás creando nodos al eliminar
         auto temp=new Node<T>;
         if(data<this->root->data)
             root->left=remove(data);
@@ -71,7 +72,7 @@ public:
 
         }
 
-
+        // Falta return
 
     }
 
@@ -107,7 +108,9 @@ public:
                 print(ite->left);
             }
             cout<<ite->data<<" ";
+            // >?
             if (ite>right != nullptr){
+                // Qué es print???
                 print(ite->right);
             }
         }
